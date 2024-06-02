@@ -1,0 +1,10 @@
+- hosts: debian
+  become: true
+  tasks:
+  - name: Create Folder
+    file: 
+      path: /opt/new_directory/
+      owner: root 
+      group: root 
+      mode: 0755 
+      state: directory
