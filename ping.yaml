@@ -1,0 +1,18 @@
+---
+- name: Primer play
+  hosts: endpoints
+  tasks:
+  - name: Hacemos ping
+    ansible.builtin.ping:
+  - name: Crear un archivo
+    ansible.builtin.shell:
+      touch /tmp/archivo1.txt
+
+- name: Instalar Nginx
+  become: true
+  hosts: endpoints
+
+  tasks:
+  - name: Parar Apache
+    include_task: stop_apache.yml
+    
